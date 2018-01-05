@@ -2,7 +2,7 @@
 /******************      Model         **************/
 
 declare class mxCell {
-    
+
     id: any;
     value;
     geometry;
@@ -62,6 +62,37 @@ declare class mxCell {
     clone(): mxCell;
 
     cloneValue();
+
+    constructor(
+        value?: any,
+        geometry?: mxGeometry,
+        style?: string);
 }
- 
-/******************      Model end     **************/
+
+declare class mxGeometry extends mxRectangle {
+    constructor(
+        x: number,
+        y: number,
+        width: number,
+        height: number);
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+
+    points: mxPoint[];
+
+    relative: boolean;
+
+    getTerminalPoint(isSource: boolean): mxPoint;
+    setTerminalPoint(point: mxPoint,
+        isSource: boolean): void;
+
+}
+
+declare class mxGraphModel {
+  beginUpdate();
+  endUpdate();
+}
+
+    /******************      Model end     **************/
